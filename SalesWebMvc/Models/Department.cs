@@ -8,7 +8,7 @@ namespace SalesWebMvc.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        ICollection<Seller> Sellers { get; set; }
+        public ICollection<Seller> Sellers { get; set; }
 
         public Department()
         {
@@ -26,9 +26,10 @@ namespace SalesWebMvc.Models
             Sellers.Add(seller);
         }
 
-        public double TotalSales(DateTime inital, DateTime final)
+        public double TotalSales(DateTime initial, DateTime final)
         {
-            return Sellers.Sum(seller => seller.TotalSales(inital, final));
+            return Sellers.Sum(seller => seller.TotalSales(initial, final));
         }
     }
 }
+
