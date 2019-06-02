@@ -1,6 +1,7 @@
 ﻿using SalesWebMvc.Models.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,11 @@ namespace SalesWebMvc.Models
     public class SalesRecord
     {
         public int Id { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyy}")]
         public DateTime Date { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public Double Amount { get; set; }
         public SaleStatus Status { get; set; }
         public Seller Seller { get; set; }
@@ -24,7 +29,8 @@ namespace SalesWebMvc.Models
             Id = id;
             Date = date;
             Amount = amount;
-            Status = status; ;
+            Status = status;
+            Seller = seller;
         }
     }
 }
